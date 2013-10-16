@@ -10,3 +10,11 @@
    - MariaDB-server
    - MariaDB-client
    - MariaDB-shared
+
+- name: Install extra libraries
+  yum: name={{ item }} state=installed
+  with_items:
+   - MySQL-python
+
+- name: Start the MySQL service
+  action: service name=mysql state=started

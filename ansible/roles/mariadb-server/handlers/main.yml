@@ -1,0 +1,5 @@
+---
+# Handler for php
+
+- name: restart mysql
+  service: name=mysql state=running

@@ -1,6 +1,9 @@
 ---
 # This Playbook will prepare to use Drupal
 
-- name: Setup database and user for Drupal
+- name: Setup database for Drupal
   mysql_db: name={{ drupal_database }} state=present
+
+- name: Setup database user for Drupal
   mysql_user: name={{ drupal_database_user }} password={{ drupal_database_password }} priv={{ drupal_database }}.*:ALL state=present
+

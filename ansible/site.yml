@@ -11,3 +11,4 @@
    - role: nginx-server
    - role: mariadb-server
    - role: php-server
+   - role: drupal
