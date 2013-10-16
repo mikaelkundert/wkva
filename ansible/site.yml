@@ -1,0 +1,13 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+   - role: common
+
+- hosts: vagrant
+  sudo: true
+  roles:
+   - role: redis-server
+   - role: nginx-server
+   - role: mariadb-server
+   - role: php-server

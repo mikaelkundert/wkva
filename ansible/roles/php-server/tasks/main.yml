@@ -1,0 +1,38 @@
+---
+# This Playbook will install php-fpm and the required components
+
+- name: Install php
+  yum: name={{ item }} state=installed
+  with_items:
+   - php-cli
+   - php-fpm
+   - php-apc
+   - php-gd
+   - php-redis
+   - php-mysql
+
+- name: Provision nginx vhost templated configuration
+  template: src=www.conf.j2 dest=/usr/local/etc/php-fpm.conf owner=nginx group=nginx mode=644
+  notify:
+    - restart php-fpm
+
+- name: Ensure php-fpm is using socket
+  shell: /bin/grep -c php-fpm.sock /etc/php-fpm.d/www.conf||cp /etc/php-fpm.d/www.conf /etc/php-fpm.d/ORIG.www.conf && sed "s/listen = 127\.0\.0\.1:9000/listen = \/tmp\/php-fpm.sock/g" /etc/php-fpm.d/ORIG.www.conf > /etc/php-fpm.d/www.conf
+
+    # - php53u-cli
+    # - php53u-mcrypt
+    # - php53u-mbstring
+    # - php53u-devel
+    # - php53u
+    # - php53u-gd
+    # - php53u-soap
+    # - php53u-xml
+    # - php53u-fpm
+    # - php53u-mysqlnd
+    # - php53u-pdo
+    # - php53u-xmlrpc
+    # - php53u-imap
+    # - php53u-dba
+    # - php53u-pecl-apc
+    # - php-pecl-redis
+

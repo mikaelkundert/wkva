@@ -1,0 +1,7 @@
+---
+# This Playbook will install php-fpm and the required components
+
+- name: Install redis
+  yum: name={{ item }} state=installed
+  with_items:
+   - redis

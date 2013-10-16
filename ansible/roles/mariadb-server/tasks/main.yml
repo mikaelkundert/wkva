@@ -1,0 +1,12 @@
+---
+# This Playbook will install nginx
+
+- name: Create the MariaDB Repository.
+  copy: src=MariaDB.repo.j2 dest=/etc/yum.repos.d/MariaDB.repo
+
+- name: Install MariaDB
+  yum: name={{ item }} state=installed
+  with_items:
+   - MariaDB-server
+   - MariaDB-client
+   - MariaDB-shared
