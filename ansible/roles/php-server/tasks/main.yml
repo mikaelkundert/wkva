@@ -35,4 +35,3 @@
     - $php_ini
   notify:
     - restart php-fpm
-    

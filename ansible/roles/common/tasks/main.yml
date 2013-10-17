@@ -13,7 +13,7 @@
   shell: rpm -Uhv http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
     creates=/etc/yum.repos.d/remi.repo
 
-- name: Install required software
+- name: Install required extra packages
   yum: name={{ item }} state=installed
   with_items:
    - git

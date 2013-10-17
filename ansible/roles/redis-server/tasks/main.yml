@@ -5,3 +5,12 @@
   yum: name={{ item }} state=installed
   with_items:
    - redis
+
+- name: Open up a socket for redis 
+  lineinfile: dest=/etc/redis.conf
+    regexp="^unixsocket {{ redis_socket }}"
+    state=present
+    insertafter='# unixsocket /tmp/redis.sock'
+    line="unixsocket {{ redis_socket }}"
+  notify:
+    - restart redis
