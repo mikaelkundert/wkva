@@ -1,8 +1,10 @@
 
 server {
+  
   listen {{ nginx_port }};
   server_name {{ nginx_hostname }};
   root {{ nginx_root }};
+
   access_log  /var/log/nginx/{{ nginx_hostname }}-access.log main buffer=32k;
   error_log   /var/log/nginx/{{ nginx_hostname }}-error.log;
   limit_conn arbeit 32;

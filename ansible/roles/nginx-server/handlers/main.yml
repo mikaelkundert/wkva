@@ -1,5 +1,14 @@
 ---
-# Handler for php
+# Handlers for nginx
+- name: start nginx
+  service: name=nginx state=running
 
 - name: restart nginx
-  service: name=nginx state=running
+  service: name=nginx state=restarted
+
+- name: reload nginx
+  service: name=nginx state=reloaded
+
+# Handlers for iptables
+- name: restart iptables
+  service: name=iptables state=restarted

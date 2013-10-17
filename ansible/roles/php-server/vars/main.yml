@@ -1,0 +1,21 @@
+
+php_fpm: [
+  {"key":"listen", "value":"/tmp/php-fpm.sock"},
+  {"key":"listen.allowed_clients", "value":"127.0.0.1"},
+  {"key":"user", "value":"vagrant"},
+  {"key":"group", "value":"vagrant"},
+  {"key":"pm.max_children", "value":"40"},
+  {"key":"pm.start_servers", "value":"5"},
+  {"key":"pm.min_spare_servers", "value":"5"},
+  {"key":"pm.max_spare_servers", "value":"10"},
+  {"key":"pm.max_requests", "value":"100"},
+  {"key":"slowlog", "value":"/var/log/php-fpm/www-slow.log"},
+  {"key":"php_admin_value[error_log]", "value":"/var/log/php-fpm/www-error.log"},
+]
+
+php_ini: [
+  {"key":"memory_limit", "value":"256M"},
+  {"key":"max_execution_time", "value":"60"},
+  {"key":"php_max_post_size", "value","20M"},
+  {"key":"upload_max_file_size", "value","20M"}
+]

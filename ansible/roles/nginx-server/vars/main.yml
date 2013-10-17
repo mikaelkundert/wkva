@@ -1,0 +1,3 @@
+nginx_port: 80
+nginx_hostname: drupal.dev
+nginx_root: /var/www

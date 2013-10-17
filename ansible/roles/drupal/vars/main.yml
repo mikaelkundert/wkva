@@ -1,0 +1,10 @@
+
+drupal: {
+  "db_name": "drupal",
+  "db_user": "drupal",
+  "db_pwd": "password",
+}
+
+drush: {
+  "version": "ax",
+}

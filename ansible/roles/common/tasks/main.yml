@@ -12,3 +12,9 @@
 - name: Enable the remi repository
   shell: rpm -Uhv http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
     creates=/etc/yum.repos.d/remi.repo
+
+- name: Install required software
+  yum: name={{ item }} state=installed
+  with_items:
+   - git
+   - wget

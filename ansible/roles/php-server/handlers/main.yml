@@ -1,5 +1,10 @@
 ---
-# Handler for php
+# Handlers for php-fpm
+- name: start php-fpm
+  service: name=php-fpm state=running
 
 - name: restart php-fpm
-  service: name=php-fpm state=running
+  service: name=php-fpm state=restarted
+
+- name: reload php-fpm
+  service: name=php-fpm state=reloaded
